@@ -1,13 +1,14 @@
 #include<bits/stdc++.h>
+#include <string>
 
 using namespace std;
 #define ll long long
 #define getDoubleTill(x, y) fixed<<setprecision(y)<<x
 #define deb(x) cout << #x << "=" << x << endl
 #define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
-#define all(x) x.begin(), x.end()
-#define clr(x) memset(x, 0, sizeof(x))
-#define sortall(x) sort(all(x))
+#define full(x) x.begin(), x.end()
+#define clr(x) memset(x, -1, sizeof(x))
+#define sortall(x) sort(full(x))
 #define setbits(x) __builtin_popcountll(x)
 #define zerobits(x) __builtin_ctzll(x) // how many zeroes in right of the first one
 #define PI 3.1415926535897932384626
@@ -28,6 +29,8 @@ ll gcd(ll a, ll b);
 
 ll lcm(ll a, ll b);
 
+ll power(ll base, ll exp);
+
 ll random(ll lim);
 
 bool isPrime(int n);
@@ -42,6 +45,8 @@ void printVectorOfPairs(const vector<pair<ll, ll>> &r);
 
 void prefixSum(vector<ll> &org, vector<ll> &ps);
 
+void allPremutations(vector<ll> arr);
+
 void solution() {
 
 }
@@ -50,7 +55,7 @@ int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	ll t = 1;
 	ll ct = 1;
-	cin >> t;
+//	cin >> t;
 	while (t--) {
 //		cout << "Case " << ct++ << ": ";
 		solution();
@@ -85,6 +90,18 @@ ll gcd(ll a, ll b) {
 
 ll lcm(ll a, ll b) {
 	return (a * b) / gcd(a, b);
+}
+
+ll power(ll base, ll exp) {
+	//binary exponentiation
+	base %= mod;
+	ll result = 1;
+	while (exp > 0) {
+		if (exp & 1) result = (result * base) % mod;
+		base = (base * base) % mod;
+		exp >>= 1;
+	}
+	return result;
 }
 
 ll random(ll lim) {
@@ -146,4 +163,11 @@ void prefixSum(vector<ll> &org, vector<ll> &ps) {
 		sum += org[i];
 		ps.push_back(sum);
 	}
+}
+
+void printAllPremutations(vector<ll> &arr) {
+	sortall(arr);
+	do {
+		printVector(arr);
+	} while (next_permutation(full(arr)));
 }
