@@ -32,7 +32,9 @@ ll power(ll base, ll exp);
 
 ll random(ll lim);
 
-bool isPrime(int n);
+bool isPrime(ll n);
+
+bool isDivisible(ll x, ll y);
 
 ll nextPrime(ll x);
 
@@ -54,7 +56,7 @@ int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	ll t = 1;
 	ll ct = 1;
-//	cin >> t;
+	cin >> t;
 	while (t--) {
 //		cout << "Case " << ct++ << ": ";
 		solution();
@@ -108,14 +110,18 @@ ll random(ll lim) {
 	return uid(rang);
 }
 
-bool isPrime(int n) {
+bool isPrime(ll n) {
 	// O(sqrt(n))
 	if (n < 2) return false;
 	if (n < 4) return true;
 	if (n % 2 == 0) return false;
-	for (int i = 3; i * i <= n; i += 2)
+	for (ll i = 3; i * i <= n; i += 2)
 		if (n % i == 0) return false;
 	return true;
+}
+
+bool isDivisible(ll x, ll y) {
+	return x % y == 0;
 }
 
 ll nextPrime(ll x) {
