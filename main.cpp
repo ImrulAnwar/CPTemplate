@@ -46,7 +46,13 @@ void printVectorOfPairs(const vector<pair<ll, ll>> &r);
 
 void prefixSum(vector<ll> &org, vector<ll> &ps);
 
-void allPremutations(vector<ll> arr);
+void printAllPremutations(vector<ll> &arr);
+
+ll howManySubstrings(ll n);
+
+ll charToLL(char c);
+
+void printSet(set<ll> &arr);
 
 void solution() {
 
@@ -175,4 +181,19 @@ void printAllPremutations(vector<ll> &arr) {
 	do {
 		printVector(arr);
 	} while (next_permutation(full(arr)));
+}
+
+ll howManySubstrings(ll n) {
+	return (n * (n + 1)) / 2;
+}
+
+ll charToLL(char c) {
+	return c - 48;
+}
+
+void printSet(set<ll> &arr) {
+	for (auto it = arr.begin(); it != arr.end(); it++) {
+		cout << *(it) << " ";
+	}
+	cout << endl;
 }
