@@ -101,6 +101,7 @@ ll lcm(ll a, ll b) {
 
 ll power(ll base, ll exp) {
 	//binary exponentiation
+	//can not generate correct output as long as double
 	base %= mod;
 	ll result = 1;
 	while (exp > 0) {
