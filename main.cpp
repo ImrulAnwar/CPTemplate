@@ -16,6 +16,10 @@ mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count())
 // to shuffle the array, pass this as an argument
 const int mod = 1'000'000'007;
 
+/* Advice 101
+ *  Ekta array te kottuk element er order thik ase sheta vector of pair use kore n log n time e ber kora jabe.
+ * */
+
 bool isEven(ll x);
 
 bool isOdd(ll x);
