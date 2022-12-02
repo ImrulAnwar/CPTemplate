@@ -18,6 +18,7 @@ const int mod = 1'000'000'007;
 
 /* Advice 101
  *  Ekta array te kottuk element er order thik ase sheta vector of pair use kore n log n time e ber kora jabe.
+ *  O(n) time a prefix sum ber kore array er jekono subsegment sum O(1) time e ber kora jabe.
  * */
 
 bool isEven(ll x);
@@ -57,6 +58,8 @@ ll howManySubstrings(ll n);
 ll charToLL(char c);
 
 void printSet(set<ll> &arr);
+
+bool isPyramid(vector<ll> &arr);
 
 void solution() {
 
@@ -201,4 +204,13 @@ void printSet(set<ll> &arr) {
 		cout << *(it) << " ";
 	}
 	cout << endl;
+}
+
+bool isPyramid(vector<ll> &arr) {
+	ll n = arr.size();
+	ll i = 0;
+	for (; i < n - 1; i++) if (arr[i] > arr[i + 1]) break;
+	if (i != n - 1) i++;
+	for (; i < n - 1; i++) if (arr[i] < arr[i + 1]) break;
+	return (i == n - 1);
 }
